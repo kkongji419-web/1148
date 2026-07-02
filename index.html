@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AM 입문교육 사전안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{--bg:#f8fafc;--ink:#101114;--sub:#626873;--muted:#9aa2ad;--accent:#79a8ff;--glass:rgba(255,255,255,.50);--glass-border:rgba(255,255,255,.72);--shadow:0 18px 60px rgba(0,0,0,.075);--radius-xl:34px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard","Apple SD Gothic Neo",sans-serif;color:var(--ink);background:var(--bg);letter-spacing:-.045em;line-height:1.6;overflow-x:hidden}
+body.modal-open{overflow:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");opacity:.04;z-index:-4}
+.ambient{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-3;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.9),transparent 35%)}
+.orb{position:absolute;width:34vw;aspect-ratio:1;border-radius:50%;filter:blur(82px);opacity:.38;animation:floatOrb 15s ease-in-out infinite alternate}
+.orb.one{left:-9vw;top:-7vw;background:radial-gradient(circle,rgba(205,228,255,.95),transparent 66%)}
+.orb.two{right:-12vw;top:16vh;background:radial-gradient(circle,rgba(255,255,255,.96),transparent 64%);animation-delay:-4s}
+.orb.three{left:34vw;bottom:-18vw;background:radial-gradient(circle,rgba(221,245,255,.82),transparent 68%);animation-delay:-7s}
+.orb.four{right:22vw;bottom:15vh;width:24vw;background:radial-gradient(circle,rgba(232,225,255,.55),transparent 70%);animation-delay:-2s}
+@keyframes floatOrb{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(36px,-28px,0) scale(1.06)}}
+.sparkle{position:fixed;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 18px rgba(255,255,255,.95),0 0 32px rgba(121,168,255,.35);opacity:0;z-index:-1;animation:sparkle 8s ease-in-out infinite}
+.sparkle.s1{left:12%;top:22%;animation-delay:0s}.sparkle.s2{right:18%;top:34%;animation-delay:2.5s}.sparkle.s3{left:72%;bottom:24%;animation-delay:5s}.sparkle.s4{left:34%;top:72%;animation-delay:6.5s}
+@keyframes sparkle{0%,78%,100%{opacity:0;transform:scale(.4)}84%{opacity:.9;transform:scale(1.8)}90%{opacity:.25;transform:scale(.8)}}
+.wrap{width:min(1240px,calc(100% - 48px));margin:0 auto}
+.glass{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.58),rgba(255,255,255,.30));border:1px solid var(--glass-border);backdrop-filter:blur(38px);-webkit-backdrop-filter:blur(38px);box-shadow:var(--shadow);overflow:hidden}
+.glass::before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at var(--mx,18%) var(--my,12%),rgba(255,255,255,.72),transparent 28%);opacity:.42;pointer-events:none;transition:opacity .3s ease}
+.glass::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.52) 36%,transparent 58%);transform:translateX(-145%);animation:glassShine 7.5s ease-in-out infinite;pointer-events:none}
+@keyframes glassShine{0%,48%{transform:translateX(-145%)}62%{transform:translateX(145%)}100%{transform:translateX(145%)}}
+header{position:sticky;top:0;z-index:100;padding:14px 0;background:rgba(248,250,252,.52);border-bottom:1px solid rgba(255,255,255,.72);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand-title{color:var(--ink);white-space:nowrap;cursor:pointer;border:0;background:transparent;text-align:left;font-family:inherit}
+.brand-title strong{display:block;font-size:18px;line-height:1;font-weight:900;letter-spacing:-.075em}
+.brand-title span{display:block;margin-top:6px;color:var(--sub);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}
+.nav button{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.40);color:#3d434b;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;transition:.28s ease;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.nav button:hover,.nav button.active{color:var(--ink);background:rgba(255,255,255,.88);transform:translateY(-2px);box-shadow:0 10px 30px rgba(121,168,255,.14)}
+.nav button[data-page="hamburger"]{color:#c75c48;background:linear-gradient(135deg,rgba(255,138,107,.22),rgba(255,255,255,.46));border-color:rgba(255,138,107,.36)}
+.nav button[data-page="coffee"]{color:#765a49;background:linear-gradient(135deg,rgba(158,128,106,.22),rgba(255,255,255,.46));border-color:rgba(158,128,106,.36)}
+.nav button[data-page="kkd"]{color:#2f9f68;background:linear-gradient(135deg,rgba(110,219,156,.24),rgba(255,255,255,.46));border-color:rgba(110,219,156,.40)}
+.nav button[data-page="concession"]{color:#3b73c8;background:linear-gradient(135deg,rgba(116,168,255,.26),rgba(255,255,255,.46));border-color:rgba(116,168,255,.42)}
+.nav button[data-page="newbiz"]{color:#b57924;background:linear-gradient(135deg,rgba(255,195,111,.27),rgba(255,255,255,.46));border-color:rgba(255,195,111,.46)}
+.page{display:none;min-height:calc(100vh - 80px);animation:pageFade .45s ease}
+.page.active{display:block}
+@keyframes pageFade{from{opacity:0;transform:translateY(16px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.hero{min-height:calc(100vh - 72px);display:grid;align-items:center;padding:66px 0 74px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:end}
+.kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;color:var(--sub);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 26px var(--accent)}
+h1{font-size:clamp(76px,12vw,166px);line-height:.86;font-weight:900;letter-spacing:-.118em}
+.hero-note{max-width:520px;padding:31px;border-radius:var(--radius-xl)}
+.hero-note .year{display:block;margin-bottom:20px;color:var(--accent);font-size:13px;font-weight:900;letter-spacing:.2em}
+.hero-note h2{margin-bottom:16px;font-size:clamp(30px,4vw,52px);line-height:1;font-weight:900;letter-spacing:-.09em}
+.hero-note p{color:var(--sub);font-size:17px;line-height:1.72;word-break:keep-all}
+.section-block{padding:74px 0;border-top:1px solid rgba(255,255,255,.78)}
+.section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:34px;align-items:end;margin-bottom:36px}
+.label{display:block;margin-bottom:16px;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.section-head h2,.brand-page h2{font-size:clamp(42px,5.7vw,80px);line-height:.96;font-weight:900;letter-spacing:-.105em}
+.section-head p,.brand-hero p{max-width:700px;color:var(--sub);font-size:16px;line-height:1.78;word-break:keep-all}
+.common-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.common-card{min-height:386px;padding:25px;border-radius:var(--radius-xl);text-align:left;cursor:default;transition:.32s ease}
+.common-card.modal-trigger{cursor:pointer}
+.common-card:hover{transform:translateY(-7px) scale(1.012);background:rgba(255,255,255,.64);box-shadow:0 22px 80px rgba(55,80,120,.12)}
+.common-card span{display:block;margin-bottom:31px;color:var(--muted);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.common-card h3{margin-bottom:16px;font-size:29px;line-height:1.04;font-weight:900;letter-spacing:-.09em}
+.common-card p,.common-card li{color:var(--sub);font-size:14.5px;line-height:1.72;word-break:keep-all}
+.schedule-date{margin-top:30px!important;color:var(--ink)!important;font-size:clamp(33px,4.2vw,50px)!important;line-height:1.02!important;font-weight:900!important;letter-spacing:-.09em!important}
+.common-card ul{list-style:none;display:grid;gap:7px}
+.common-card strong{color:var(--ink);font-weight:850}
+.open-hint{position:absolute;left:25px;right:25px;bottom:24px;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.08em}
+.brand-page{--brand-accent:var(--accent);padding:82px 0;position:relative}
+.brand-page::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at 78% 20%,color-mix(in srgb,var(--brand-accent) 18%,transparent),transparent 34%);opacity:.8}
+.brand-page.hamburger{--brand-accent:#ff8a6b}.brand-page.coffee{--brand-accent:#9e806a}.brand-page.kkd{--brand-accent:#6edb9c}.brand-page.concession{--brand-accent:#74a8ff}.brand-page.newbiz{--brand-accent:#ffc36f}
+.brand-hero{display:grid;grid-template-columns:.82fr 1.18fr;gap:34px;align-items:end;margin-bottom:30px}
+.brand-hero .label{color:var(--brand-accent)}
+.brand-content{display:grid;gap:14px}
+.brand-panel{padding:28px;border-radius:var(--radius-xl)}
+.brand-panel-head{margin-bottom:20px}
+.brand-panel span{display:block;color:var(--brand-accent);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.brand-panel h3{margin-top:10px;font-size:clamp(28px,3.8vw,44px);line-height:1;font-weight:900;letter-spacing:-.095em}
+.image-slot{min-height:360px;display:grid;place-items:center;padding:26px;border-radius:28px;border:1px solid rgba(255,255,255,.72);background:linear-gradient(135deg,rgba(255,255,255,.60),rgba(255,255,255,.26)),radial-gradient(circle at 18% 18%,rgba(121,168,255,.16),transparent 38%)}
+.image-slot img{width:100%;max-height:620px;object-fit:contain;border-radius:22px;display:block}
+.text-input-area{min-height:190px;padding:24px;border-radius:28px;background:rgba(255,255,255,.40);border:1px dashed rgba(17,17,17,.13);color:var(--sub);font-size:15.5px;font-weight:700;line-height:1.72;word-break:keep-all}
+.dress-list{display:grid;gap:14px}
+.dress-list strong{display:block;margin-bottom:6px;color:var(--ink);font-size:18px;font-weight:900}
+.dress-list ul{list-style:none;display:grid;gap:5px}
+.dress-list li::before{content:"· ";color:var(--brand-accent);font-weight:900}
+.table-wrap{width:100%;overflow-x:auto;border-radius:26px;border:1px solid rgba(255,255,255,.72);background:rgba(255,255,255,.40)}
+table{width:100%;min-width:620px;border-collapse:collapse;font-size:15px}
+th{padding:16px;color:var(--ink);background:rgba(255,255,255,.64);font-weight:900;text-align:center;border-bottom:1px solid rgba(17,17,17,.08)}
+td{padding:14px 16px;color:var(--sub);font-weight:700;text-align:center;border-bottom:1px solid rgba(17,17,17,.06)}
+tr:last-child td{border-bottom:0}
+.badge{display:inline-flex;align-items:center;justify-content:center;min-width:64px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:900}
+.badge.use{color:#2f6edb;background:rgba(121,168,255,.18);border:1px solid rgba(121,168,255,.32)}
+.badge.no{color:#777;background:rgba(17,17,17,.06);border:1px solid rgba(17,17,17,.08)}
+.modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .34s ease,visibility .34s ease}
+.modal.active{opacity:1;visibility:visible}
+.modal-back{position:absolute;inset:0;background:radial-gradient(circle at 50% 10%,rgba(121,168,255,.18),transparent 36%),rgba(8,12,20,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.modal-box{position:relative;width:min(1120px,94vw);max-height:92vh;padding:22px;border-radius:46px;background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(255,255,255,.58)),radial-gradient(circle at 18% 18%,rgba(121,168,255,.22),transparent 34%);border:1px solid rgba(255,255,255,.78);box-shadow:0 44px 140px rgba(0,0,0,.28);backdrop-filter:blur(50px);-webkit-backdrop-filter:blur(50px);overflow:hidden;transform:translateY(34px) scale(.94);transition:transform .34s ease}
+.modal.active .modal-box{transform:translateY(0) scale(1)}
+.viewer-shell{padding:18px;border-radius:34px;background:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.72)}
+.modal-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:18px}
+.modal-title span{display:block;margin-bottom:10px;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.modal-title h3{font-size:clamp(32px,5vw,60px);line-height:.95;font-weight:900;letter-spacing:-.1em}
+.close-modal{flex:0 0 auto;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.84);color:var(--ink);font-size:28px;line-height:1;cursor:pointer;box-shadow:0 12px 34px rgba(0,0,0,.12)}
+.slide-stage{min-height:min(610px,calc(92vh - 250px));display:grid;place-items:center;border-radius:30px;overflow:auto;background:linear-gradient(145deg,rgba(250,250,250,.92),rgba(255,255,255,.62)),radial-gradient(circle at 50% 0%,rgba(121,168,255,.12),transparent 40%);border:1px solid rgba(255,255,255,.74);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);transform:translateZ(0);backface-visibility:hidden;will-change:transform}
+.slide{display:none;width:100%;height:100%;min-height:inherit;place-items:center;padding:24px;text-align:center;animation:slideFade .28s ease}
+.slide.active{display:grid}
+.slide img{width:auto;max-width:100%;max-height:calc(92vh - 290px);object-fit:contain;border-radius:22px;display:block;transform:translateZ(0) scale(var(--zoom,1));transform-origin:center center;transition:none;backface-visibility:hidden;will-change:transform;box-shadow:0 18px 60px rgba(0,0,0,.10)}
+@keyframes slideFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.viewer-bottom{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:16px;margin-top:16px}
+.slide-btn,.zoom-btn{height:48px;border:0;border-radius:999px;background:rgba(255,255,255,.72);color:var(--ink);cursor:pointer;box-shadow:0 12px 34px rgba(0,0,0,.1);font-family:inherit;font-weight:900}
+.slide-btn{width:48px;font-size:22px}.zoom-btn{min-width:52px;padding:0 15px;font-size:13px}
+.viewer-meta{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--sub);font-size:13px;font-weight:900;letter-spacing:.08em}.dots{display:flex;justify-content:center;gap:8px}
+.dot{width:8px;height:8px;border:0;border-radius:50%;background:rgba(17,17,17,.22);cursor:pointer}.dot.active{width:24px;border-radius:999px;background:var(--accent)}
+.control-group{display:flex;justify-content:flex-end;align-items:center;gap:8px}
+footer{padding:60px 0;color:var(--muted);text-align:center;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:1120px){.hero-grid,.section-head,.brand-hero{grid-template-columns:1fr}.common-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.wrap{width:min(100% - 28px,1240px)}.topbar{flex-direction:column;align-items:flex-start}.nav{display:grid;width:100%;grid-template-columns:repeat(2,1fr)}.nav button{padding:10px 9px;text-align:center;font-size:12px}.hero{min-height:auto;padding:56px 0 68px}h1{font-size:clamp(62px,19vw,102px)}.section-block,.brand-page{padding:64px 0}.common-grid{grid-template-columns:1fr}.common-card{min-height:360px}.brand-panel{padding:22px}.image-slot{min-height:260px}.modal-box{padding:14px;border-radius:30px}.viewer-shell{padding:16px;border-radius:24px}.slide-stage{min-height:min(460px,calc(92vh - 250px))}.viewer-bottom{grid-template-columns:1fr}.control-group{justify-content:center}}
+</style>
+</head>
+
+<body>
+<div class="ambient" aria-hidden="true"><div class="orb one"></div><div class="orb two"></div><div class="orb three"></div><div class="orb four"></div></div>
+<div class="sparkle s1"></div><div class="sparkle s2"></div><div class="sparkle s3"></div><div class="sparkle s4"></div>
+
+<header>
+  <div class="wrap topbar">
+    <button class="brand-title" type="button" data-page="common"><strong>AM 입문교육</strong><span>Pre-Guide 2026</span></button>
+    <nav class="nav">
+      <button class="active" type="button" data-page="common">Common</button>
+      <button type="button" data-page="hamburger">Hamburger</button>
+      <button type="button" data-page="coffee">Coffee</button>
+      <button type="button" data-page="kkd">KKD</button>
+      <button type="button" data-page="concession">Concession</button>
+      <button type="button" data-page="newbiz">New Business</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="common" class="page active">
+  <div class="hero wrap">
+    <div class="hero-grid">
+      <div class="hero-title"><span class="kicker">2026 AM Education</span><h1>AM<br>입문교육</h1></div>
+      <aside class="hero-note glass"><span class="year">PRE-GUIDE</span><h2>첫 출근 전,<br>꼭 확인할 것들.</h2><p>AM 입사를 진심으로 축하드립니다. 교육 참석 전 필요한 일정, 위치, 출결, 기숙사 안내를 한 페이지에 정리했습니다.</p></aside>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="label">Common Information</span><h2>공통 안내</h2></div>
+        <p>첫 페이지는 4개의 핵심 박스로 구성했습니다. 위치, 고용24, 기숙사 안내는 클릭하면 큰 이미지 뷰어로 확인할 수 있습니다.<br><br>브랜드별 세부 안내는 상단 메뉴에서 해당 브랜드를 클릭해 확인해 주세요.</p>
+      </div>
+
+      <div class="common-grid">
+        <article class="common-card glass"><span>01 Schedule</span><h3>일정</h3><p class="schedule-date">2026.07.06<br>—<br>2026.07.31</p></article>
+        <article class="common-card glass modal-trigger" data-modal="location"><span>02 Location</span><h3>위치</h3><ul><li><strong>LOTTE GRS ACADEMY</strong></li><li>서울시 금천구 벚꽃로 104 금천롯데타워 6층</li><li>1호선 독산역 1번 출구 도보 약 10분</li><li>네이버지도·카카오맵에서 ‘롯데지알에스 아카데미’ 검색</li><li><strong>교육생 자차 이용 불가</strong></li></ul><div class="open-hint">Click to view map →</div></article>
+        <article class="common-card glass modal-trigger" data-modal="employment"><span>03 Employment 24</span><h3>고용24<br>출결</h3><ul><li>교육 참석 전 <strong>고용24 회원가입</strong></li><li><strong>고용24 출결관리 앱</strong> 설치</li><li>앱 설치 후 <strong>본인인증</strong> 완료</li><li><strong>출결기기등록</strong>까지 사전 완료</li></ul><div class="open-hint">Click to view detail →</div></article>
+        <article class="common-card glass modal-trigger" data-modal="dormitory"><span>04 Dormitory</span><h3>기숙사<br>잇소키 안내</h3><ul><li>기숙사는 <strong>사전 신청자에 한하여 이용</strong></li><li>잇소키 카카오톡 알림톡 확인 필수</li><li>사전 입실 가능 시간: <strong>오후 5시 ~ 오후 10시</strong></li><li>세면도구, 수건 등 <strong>개인용품 지참</strong></li><li>알림톡 및 출입 안내 내용 삭제 금지</li></ul><div class="open-hint">Click to view detail →</div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hamburger" class="page brand-page hamburger"><div class="wrap"><div class="brand-hero"><div><span class="label">Hamburger Division</span><h2>햄버거 부문</h2></div><p>세부 일정은 이미지로 확인하고, 복장 규정과 명단은 아래에서 확인해 주세요.</p></div><div class="brand-content"><article class="brand-panel glass"><div class="brand-panel-head"><span>01 Schedule</span><h3>세부 일정</h3></div><div class="image-slot"><img src="h.png" alt="햄버거 세부 일정"></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>02 Dress Code</span><h3>복장 규정</h3></div><div class="text-input-area dress-list"><div><strong>공통 출퇴근 복장</strong><ul><li>비즈니스 캐주얼을 착용해 주세요.</li><li>과도한 염색, 반바지, 민소매, 트레이닝복, 레깅스, 슬리퍼 착용은 불가합니다.</li><li>손톱은 짧고 단정하게 정리하며, 매니큐어는 바르지 않습니다.</li></ul></div><div><strong>교육 복장</strong><ul><li>상의 유니폼은 교육 시 일괄 지급됩니다.</li><li>검정색 정장바지, 검정색 양말, 검정색 구두 또는 안전화를 착용해 주세요.</li><li>필요 시 검정색 계열 가디건을 착용할 수 있습니다.</li><li>여성 교육생은 머리망을 준비해 주세요.</li></ul></div></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>03 List</span><h3>교육 대상자 명단</h3></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>이름</th><th>성별</th><th>기숙사 사용 여부</th></tr></thead><tbody><tr><td>1</td><td>강현지</td><td>여</td><td><span class="badge use">사용</span></td></tr><tr><td>2</td><td>김병량</td><td>남</td><td><span class="badge use">사용</span></td></tr><tr><td>3</td><td>김서윤</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>4</td><td>백민지</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>5</td><td>서도은</td><td>여</td><td><span class="badge use">사용</span></td></tr><tr><td>6</td><td>신범수</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>7</td><td>심승엽</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>8</td><td>심효은</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>9</td><td>안상현</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>10</td><td>이재희</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>11</td><td>임호경</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>12</td><td>장건민</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>13</td><td>조범근</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>14</td><td>조현지</td><td>여</td><td><span class="badge use">사용</span></td></tr><tr><td>15</td><td>방호경</td><td>남</td><td><span class="badge use">사용</span></td></tr></tbody></table></div></article></div></div></section>
+
+<section id="coffee" class="page brand-page coffee"><div class="wrap"><div class="brand-hero"><div><span class="label">Coffee Division</span><h2>커피 부문</h2></div><p>세부 일정은 이미지로 확인하고, 복장 규정과 명단은 아래에서 확인해 주세요.</p></div><div class="brand-content"><article class="brand-panel glass"><div class="brand-panel-head"><span>01 Schedule</span><h3>세부 일정</h3></div><div class="image-slot"><img src="c.png" alt="커피 세부 일정"></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>02 Dress Code</span><h3>복장 규정</h3></div><div class="text-input-area dress-list"><div><strong>공통 출퇴근 복장</strong><ul><li>비즈니스 캐주얼을 착용해 주세요.</li><li>과도한 염색, 반바지, 민소매, 트레이닝복, 레깅스, 슬리퍼 착용은 불가합니다.</li><li>손톱은 짧고 단정하게 정리하며, 매니큐어는 바르지 않습니다.</li></ul></div><div><strong>교육 복장</strong><ul><li>검정색 또는 베이지색 상의를 착용해 주세요.</li><li>검정색 정장바지, 검정색 양말, 검정색 구두 또는 안전화를 착용해 주세요.</li><li>필요 시 검정색 계열 가디건을 착용할 수 있습니다.</li><li>여성 교육생은 머리망을 준비해 주세요.</li></ul></div></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>03 List</span><h3>교육 대상자 명단</h3></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>이름</th><th>성별</th><th>기숙사 사용 여부</th></tr></thead><tbody><tr><td>1</td><td>고주현</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>2</td><td>김민영</td><td>여</td><td><span class="badge no">미사용</span></td></tr></tbody></table></div></article></div></div></section>
+
+<section id="kkd" class="page brand-page kkd"><div class="wrap"><div class="brand-hero"><div><span class="label">KKD Division</span><h2>KKD 부문</h2></div><p>세부 일정은 이미지로 확인하고, 복장 규정과 명단은 아래에서 확인해 주세요.</p></div><div class="brand-content"><article class="brand-panel glass"><div class="brand-panel-head"><span>01 Schedule</span><h3>세부 일정</h3></div><div class="image-slot"><img src="k.png" alt="KKD 세부 일정"></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>02 Dress Code</span><h3>복장 규정</h3></div><div class="text-input-area dress-list"><div><strong>공통 출퇴근 복장</strong><ul><li>비즈니스 캐주얼을 착용해 주세요.</li><li>과도한 염색, 반바지, 민소매, 트레이닝복, 레깅스, 슬리퍼 착용은 불가합니다.</li><li>손톱은 짧고 단정하게 정리하며, 매니큐어는 바르지 않습니다.</li></ul></div><div><strong>교육 복장</strong><ul><li>검정색 상의를 착용해 주세요.</li><li>검정색 정장바지 또는 베이지색 바지를 착용해 주세요.</li><li>검정색 양말과 어두운색 운동화를 착용해 주세요.</li><li>필요 시 검정색 계열 가디건을 착용할 수 있습니다.</li><li>여성 교육생은 머리망을 준비해 주세요.</li></ul></div></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>03 List</span><h3>교육 대상자 명단</h3></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>이름</th><th>성별</th><th>기숙사 사용 여부</th></tr></thead><tbody><tr><td>1</td><td>김세빈</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>2</td><td>박지원</td><td>여</td><td><span class="badge use">사용</span></td></tr><tr><td>3</td><td>박찬우</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>4</td><td>배경철</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>5</td><td>배재성</td><td>남</td><td><span class="badge use">사용</span></td></tr><tr><td>6</td><td>정소희</td><td>여</td><td><span class="badge no">미사용</span></td></tr></tbody></table></div></article></div></div></section>
+
+<section id="concession" class="page brand-page concession"><div class="wrap"><div class="brand-hero"><div><span class="label">Concession Division</span><h2>컨세션 부문</h2></div><p>세부 일정은 이미지로 확인하고, 복장 규정과 명단은 아래에서 확인해 주세요.</p></div><div class="brand-content"><article class="brand-panel glass"><div class="brand-panel-head"><span>01 Schedule</span><h3>세부 일정</h3></div><div class="image-slot"><img src="컨.png" alt="컨세션 세부 일정"></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>02 Dress Code</span><h3>복장 규정</h3></div><div class="text-input-area dress-list"><div><strong>공통 출퇴근 복장</strong><ul><li>비즈니스 캐주얼을 착용해 주세요.</li><li>과도한 염색, 반바지, 민소매, 트레이닝복, 레깅스, 슬리퍼 착용은 불가합니다.</li><li>손톱은 짧고 단정하게 정리하며, 매니큐어는 바르지 않습니다.</li></ul></div><div><strong>교육 복장</strong><ul><li>상의 유니폼은 교육 시 일괄 지급됩니다.</li><li>검정색 정장바지, 검정색 양말, 검정색 구두 또는 안전화를 착용해 주세요.</li><li>필요 시 검정색 계열 가디건을 착용할 수 있습니다.</li><li>여성 교육생은 머리망을 준비해 주세요.</li></ul></div></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>03 List</span><h3>교육 대상자 명단</h3></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>이름</th><th>성별</th><th>기숙사 사용 여부</th></tr></thead><tbody><tr><td>1</td><td>김나영</td><td>여</td><td><span class="badge use">사용</span></td></tr><tr><td>2</td><td>윤예림</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>3</td><td>권재근</td><td>남</td><td><span class="badge use">사용</span></td></tr><tr><td>4</td><td>김혜빈</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>5</td><td>김선재</td><td>남</td><td><span class="badge use">사용</span></td></tr><tr><td>6</td><td>천송이</td><td>여</td><td><span class="badge no">미사용</span></td></tr></tbody></table></div></article></div></div></section>
+
+<section id="newbiz" class="page brand-page newbiz"><div class="wrap"><div class="brand-hero"><div><span class="label">New Business Division</span><h2>신사업 부문</h2></div><p>세부 일정은 이미지로 확인하고, 복장 규정과 명단은 아래에서 확인해 주세요.</p></div><div class="brand-content"><article class="brand-panel glass"><div class="brand-panel-head"><span>01 Schedule</span><h3>세부 일정</h3></div><div class="image-slot"><img src="신.png" alt="신사업 세부 일정"></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>02 Dress Code</span><h3>복장 규정</h3></div><div class="text-input-area dress-list"><div><strong>공통 출퇴근 복장</strong><ul><li>비즈니스 캐주얼을 착용해 주세요.</li><li>과도한 염색, 반바지, 민소매, 트레이닝복, 레깅스, 슬리퍼 착용은 불가합니다.</li><li>손톱은 짧고 단정하게 정리하며, 매니큐어는 바르지 않습니다.</li></ul></div><div><strong>교육 복장</strong><ul><li>상의 유니폼은 교육 시 일괄 지급됩니다.</li><li>검정색 정장바지, 검정색 양말, 검정색 구두 또는 안전화를 착용해 주세요.</li><li>필요 시 검정색 계열 가디건을 착용할 수 있습니다.</li><li>여성 교육생은 머리망을 준비해 주세요.</li></ul></div></div></article><article class="brand-panel glass"><div class="brand-panel-head"><span>03 List</span><h3>교육 대상자 명단</h3></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>이름</th><th>성별</th><th>기숙사 사용 여부</th></tr></thead><tbody><tr><td>1</td><td>김대현</td><td>남</td><td><span class="badge no">미사용</span></td></tr><tr><td>2</td><td>남서은</td><td>여</td><td><span class="badge no">미사용</span></td></tr><tr><td>3</td><td>박혜민</td><td>남</td><td><span class="badge no">미사용</span></td></tr></tbody></table></div></article></div></div></section>
+</main>
+
+<div class="modal" id="location"><div class="modal-back" data-close></div><div class="modal-box"><div class="viewer-shell"><div class="modal-top"><div class="modal-title"><span>Location Guide</span><h3>오시는 길</h3></div><button class="close-modal" data-close>×</button></div><div class="slider"><div class="slide-stage"><div class="slide active"><img src="map.png" alt="오시는 길"></div></div><div class="viewer-bottom"><button class="slide-btn prev" type="button">←</button><div class="viewer-meta"><div class="dots"></div><span class="page-count">1 / 1</span></div><div class="control-group"><button class="zoom-btn zoom-out" type="button">−</button><button class="zoom-btn zoom-reset" type="button">100%</button><button class="zoom-btn zoom-in" type="button">＋</button></div><button class="slide-btn next" type="button">→</button></div></div></div></div></div>
+
+<div class="modal" id="employment"><div class="modal-back" data-close></div><div class="modal-box"><div class="viewer-shell"><div class="modal-top"><div class="modal-title"><span>Employment 24</span><h3>고용24 세부 안내</h3></div><button class="close-modal" data-close>×</button></div><div class="slider"><div class="slide-stage"><div class="slide active"><img src="employment24-01.png" alt="고용24 안내 1"></div><div class="slide"><img src="employment24-02.png" alt="고용24 안내 2"></div><div class="slide"><img src="employment24-03.png" alt="고용24 안내 3"></div><div class="slide"><img src="employment24-04.png" alt="고용24 안내 4"></div></div><div class="viewer-bottom"><button class="slide-btn prev" type="button">←</button><div class="viewer-meta"><div class="dots"></div><span class="page-count">1 / 4</span></div><div class="control-group"><button class="zoom-btn zoom-out" type="button">−</button><button class="zoom-btn zoom-reset" type="button">100%</button><button class="zoom-btn zoom-in" type="button">＋</button></div><button class="slide-btn next" type="button">→</button></div></div></div></div></div>
+
+<div class="modal" id="dormitory"><div class="modal-back" data-close></div><div class="modal-box"><div class="viewer-shell"><div class="modal-top"><div class="modal-title"><span>Dormitory Guide</span><h3>기숙사 잇소키 안내</h3></div><button class="close-modal" data-close>×</button></div><div class="slider"><div class="slide-stage"><div class="slide active"><img src="itsokey-01.png" alt="기숙사 잇소키 안내 1"></div><div class="slide"><img src="itsokey-02.png" alt="기숙사 잇소키 안내 2"></div></div><div class="viewer-bottom"><button class="slide-btn prev" type="button">←</button><div class="viewer-meta"><div class="dots"></div><span class="page-count">1 / 2</span></div><div class="control-group"><button class="zoom-btn zoom-out" type="button">−</button><button class="zoom-btn zoom-reset" type="button">100%</button><button class="zoom-btn zoom-in" type="button">＋</button></div><button class="slide-btn next" type="button">→</button></div></div></div></div></div>
+
+<footer>AM 입문교육 사전안내 · 2026</footer>
+
+<script>
+document.querySelectorAll(".glass").forEach(el=>{el.addEventListener("mousemove",e=>{const r=el.getBoundingClientRect();el.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");el.style.setProperty("--my",((e.clientY-r.top)/r.height*100)+"%");});});
+const pageButtons=document.querySelectorAll("[data-page]"),pages=document.querySelectorAll(".page");
+function openPage(pageId){window.scrollTo(0,0);pages.forEach(page=>page.classList.toggle("active",page.id===pageId));document.querySelectorAll(".nav button").forEach(button=>button.classList.toggle("active",button.dataset.page===pageId));}
+pageButtons.forEach(button=>button.addEventListener("click",()=>openPage(button.dataset.page)));
+const modals=document.querySelectorAll(".modal");
+document.querySelectorAll(".modal-trigger").forEach(card=>card.addEventListener("click",()=>{const modal=document.getElementById(card.dataset.modal);if(!modal)return;modal.classList.add("active");document.body.classList.add("modal-open");}));
+function closeModals(){modals.forEach(modal=>modal.classList.remove("active"));document.body.classList.remove("modal-open")}
+document.querySelectorAll("[data-close]").forEach(el=>el.addEventListener("click",closeModals));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModals()});
+document.querySelectorAll(".slider").forEach(slider=>{const slides=slider.querySelectorAll(".slide"),prev=slider.querySelector(".prev"),next=slider.querySelector(".next"),dotsWrap=slider.querySelector(".dots"),pageCount=slider.querySelector(".page-count"),zoomIn=slider.querySelector(".zoom-in"),zoomOut=slider.querySelector(".zoom-out"),zoomReset=slider.querySelector(".zoom-reset");let index=0,zoom=1;slides.forEach((_,i)=>{const dot=document.createElement("button");dot.type="button";dot.className="dot";if(i===0)dot.classList.add("active");dot.addEventListener("click",()=>showSlide(i));dotsWrap.appendChild(dot)});const dots=dotsWrap.querySelectorAll(".dot");function applyZoom(){slider.style.setProperty("--zoom",zoom);if(zoomReset)zoomReset.textContent=Math.round(zoom*100)+"%"}function showSlide(nextIndex){index=(nextIndex+slides.length)%slides.length;slides.forEach((slide,i)=>slide.classList.toggle("active",i===index));dots.forEach((dot,i)=>dot.classList.toggle("active",i===index));if(pageCount)pageCount.textContent=`${index+1} / ${slides.length}`;zoom=1;applyZoom()}prev.addEventListener("click",()=>showSlide(index-1));next.addEventListener("click",()=>showSlide(index+1));zoomIn.addEventListener("click",()=>{zoom=Math.min(1.7,zoom+.1);applyZoom()});zoomOut.addEventListener("click",()=>{zoom=Math.max(.8,zoom-.1);applyZoom()});zoomReset.addEventListener("click",()=>{zoom=1;applyZoom()});if(slides.length<=1){prev.style.visibility="hidden";next.style.visibility="hidden"}showSlide(0)});
+</script>
+</body>
+</html>
